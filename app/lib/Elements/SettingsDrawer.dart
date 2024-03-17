@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import '../screens/QuickAccess.dart';
 
 class SettingsTile extends StatelessWidget {
   final Map<String,Color> currentTheme;
@@ -26,7 +27,12 @@ class SettingsTile extends StatelessWidget {
             focusColor:this.currentTheme['InnerContainerColor'],
             tileColor:this.currentTheme['InnerContainerColor'],
             onTap: () {
-              Navigator.pop(context);
+              if(this.DisplayText=="Quick Access List"){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => QuickAccessList(currentTheme:this.currentTheme)),
+                );
+              }
             },
             shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           ),
@@ -70,12 +76,12 @@ class SettingsDrawer extends StatelessWidget {
                 ),
                 Text("Settings", style:TextStyle(fontSize:24,height:2,color: this.currentTheme['VaultrixColor'])),
               ]
-            )
+            ),
           ),//DrawerHeader
           //SizedBox(height:40),
           SettingsTile(DisplayIcon:Icons.person,DisplayText:'My Profile',currentTheme: this.currentTheme),
           SizedBox(height:10),
-          SettingsTile(DisplayIcon:Icons.contacts,DisplayText:'Quick List',currentTheme: this.currentTheme),
+          SettingsTile(DisplayIcon:Icons.contacts,DisplayText:'Quick Access List',currentTheme: this.currentTheme),
           SizedBox(height:10),
           SettingsTile(DisplayIcon:Icons.workspace_premium,DisplayText:'Features',currentTheme: this.currentTheme),
           SizedBox(height:10),

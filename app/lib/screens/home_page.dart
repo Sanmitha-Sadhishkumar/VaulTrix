@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'Elements/SettingsDrawer.dart';
-import 'Elements/HelperMessage.dart';
+import '../Elements/SettingsDrawer.dart';
+import '../Elements/HelperMessage.dart';
 
 class HomeLayout extends StatefulWidget {
   final Map<String,Color> currentTheme;
