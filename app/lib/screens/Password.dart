@@ -63,8 +63,9 @@ class _ChangePasswordLayoutState extends State<ChangePasswordLayout> {
                     SizedBox(height: 30,),
                     Container(
                       height: 350,
-                      width: 370,
+                      width: 320,
                       decoration: BoxDecoration(
+                        color: currentTheme['OuterContainerColor'],
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(color:Colors.white),
                       ),
@@ -85,7 +86,7 @@ class _ChangePasswordLayoutState extends State<ChangePasswordLayout> {
                             hintText: 'Confirm Password',
                           ),
                           SizedBox(height:10),
-                          CustomElevatedButton(msg: 'Confirm', nav: ''),
+                          CustomElevatedButton(msg: 'Change', nav: ''),
                         ],
                       ),
                     ),

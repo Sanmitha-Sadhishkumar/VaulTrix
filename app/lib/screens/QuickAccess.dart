@@ -46,7 +46,15 @@ class QuickAccessList extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(height: 30,),
+                      Text(
+                        "Quick Access List",
+                        style:TextStyle(
+                            height: 3,
+                            fontSize: 30,
+                            color: currentTheme['VaultrixColor']
+                        ),
+                      ),
+                      SizedBox(height: 20,),
 
                       //Todo
                       QuickAccessTile(ContactName: "Dhivya", ContactNum: '8248701899', ContactRelation: 'Friend',),
@@ -86,7 +94,7 @@ class QuickAccessList extends StatelessWidget {
                               ],
                           ),
                       ),
-                      SizedBox(height:140),
+                      SizedBox(height:60),
                   ],
                 ),
               ),
