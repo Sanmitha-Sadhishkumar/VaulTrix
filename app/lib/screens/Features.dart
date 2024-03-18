@@ -25,7 +25,8 @@ class _FeaturesLayoutState extends State<FeaturesLayout> {
       ),
       drawer: SettingsDrawer(),
       body:Column(
-        children: <Widget>[Flexible(
+        children: <Widget>[
+          Flexible(
           flex: 2,
           fit: FlexFit.tight,
           child:Container(
@@ -49,7 +50,7 @@ class _FeaturesLayoutState extends State<FeaturesLayout> {
                         height: 50,
                         child: Row(
                           children: <Widget>[
-                            SizedBox(width: 300,),
+                            SizedBox(width: MediaQuery.of(context).size.width-120,),
                             CustomElevatedButton(msg: 'Back', nav: 'Home'),
                           ],
                         ),
@@ -73,18 +74,17 @@ class _FeaturesLayoutState extends State<FeaturesLayout> {
                       FeatureTile(msg: 'Light Detection', status: LightStatus,),
                       SizedBox(height:20),
                       FeatureTile(msg: 'Radius Calculation', status: RadiusStatus,),
-                      SizedBox(height:120),
+                      SizedBox(height:MediaQuery.of(context).size.height-680),
                     ],
                   ),
                 ),
-
                 SizedBox(
                   height:20,
                   child:Text(
                     "VaulTrix",
                     style:TextStyle(
                         height: 2,
-                        fontSize: 10,
+                        fontSize: 14,
                         color: currentTheme['VaultrixColor']
                     ),
                   ),

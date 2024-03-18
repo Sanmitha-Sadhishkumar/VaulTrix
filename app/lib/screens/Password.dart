@@ -46,7 +46,7 @@ class _ChangePasswordLayoutState extends State<ChangePasswordLayout> {
                       height: 50,
                       child: Row(
                         children: <Widget>[
-                          SizedBox(width: 300,),
+                          SizedBox(width: MediaQuery.of(context).size.width-120,),
                           CustomElevatedButton(msg: 'Back', nav: 'Home'),
                         ],
                       ),
@@ -90,7 +90,7 @@ class _ChangePasswordLayoutState extends State<ChangePasswordLayout> {
                         ],
                       ),
                     ),
-                    SizedBox(height:150),
+                    SizedBox(height:MediaQuery.of(context).size.height-660),
                   ],
                 ),
               ),
@@ -101,7 +101,7 @@ class _ChangePasswordLayoutState extends State<ChangePasswordLayout> {
                   "VaulTrix",
                   style:TextStyle(
                       height: 2,
-                      fontSize: 10,
+                      fontSize: 15,
                       color: currentTheme['VaultrixColor']
                   ),
                 ),

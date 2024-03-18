@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import '../Elements/SettingsDrawer.dart';
 import '../colorThemes.dart';
+import '../elements/CustomElevatedButton.dart';
 
 class LocationLayout extends StatefulWidget {
   const LocationLayout({super.key});
@@ -39,7 +40,25 @@ class _LocationLayoutState extends State<LocationLayout> {
                   ),
 
                   child:Column(
-
+                    children: <Widget>[
+                      SizedBox(
+                        height: 50,
+                        child: Row(
+                          children: <Widget>[
+                            SizedBox(width: MediaQuery.of(context).size.width-120,),
+                            CustomElevatedButton(msg: 'Back', nav: 'Home'),
+                          ],
+                        ),
+                      ),
+                      Text(
+                        "Location",
+                        style:TextStyle(
+                            height: 3,
+                            fontSize: 30,
+                            color: currentTheme['VaultrixColor']
+                        ),
+                      ),
+                    ],
                   ),
                 ),
 
@@ -49,7 +68,7 @@ class _LocationLayoutState extends State<LocationLayout> {
                     "VaulTrix",
                     style:TextStyle(
                         height: 2,
-                        fontSize: 10,
+                        //fontSize: 10,
                         color: currentTheme['VaultrixColor']
                     ),
                   ),

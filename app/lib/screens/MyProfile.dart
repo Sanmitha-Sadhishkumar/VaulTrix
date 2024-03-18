@@ -46,7 +46,7 @@ class _MyProfileLayoutState extends State<MyProfileLayout> {
                       height: 50,
                       child: Row(
                         children: <Widget>[
-                          SizedBox(width: 300,),
+                          SizedBox(width: MediaQuery.of(context).size.width-120,),
                           CustomElevatedButton(msg: 'Back', nav: 'Home'),
                         ],
                       ),
@@ -79,7 +79,7 @@ class _MyProfileLayoutState extends State<MyProfileLayout> {
                       ProfileTile(Key:'Contact : ', Value: '93363200587'),
                       SizedBox(height: 20,),
                       ProfileTile(Key:'Email : ', Value: 'sanmithasadhishkumar@gmail.com'),
-                      SizedBox(height:130),
+                      SizedBox(height:MediaQuery.of(context).size.height-670),
                     ],
                   ),
                 ),
@@ -90,7 +90,7 @@ class _MyProfileLayoutState extends State<MyProfileLayout> {
                     "VaulTrix",
                     style:TextStyle(
                         height: 2,
-                        fontSize: 10,
+                        fontSize: 15,
                         color: currentTheme['VaultrixColor']
                     ),
                   ),

@@ -41,7 +41,7 @@ class QuickAccessList extends StatelessWidget {
                         height: 50,
                         child: Row(
                           children: <Widget>[
-                            SizedBox(width: 300,),
+                            SizedBox(width: MediaQuery.of(context).size.width-120,),
                             CustomElevatedButton(msg: 'Back', nav: 'Home'),
                           ],
                         ),
@@ -60,7 +60,7 @@ class QuickAccessList extends StatelessWidget {
                       QuickAccessTile(ContactName: "Dhivya", ContactNum: '8248701899', ContactRelation: 'Friend',),
                       SizedBox(height: 20,),
                       QuickAccessTile(ContactName: "Sadhish", ContactNum: '9344944110', ContactRelation: 'Dad',),
-                      SizedBox(height: 40,),
+                      SizedBox(height: 30,),
 
                       Container(
                           height: 300,
@@ -94,7 +94,7 @@ class QuickAccessList extends StatelessWidget {
                               ],
                           ),
                       ),
-                      SizedBox(height:60),
+                      SizedBox(height:MediaQuery.of(context).size.height-725),
                   ],
                 ),
               ),
@@ -103,7 +103,7 @@ class QuickAccessList extends StatelessWidget {
                       "VaulTrix",
                         style:TextStyle(
                           height: 2,
-                          fontSize: 10,
+                          fontSize: 15,
                           color: currentTheme['VaultrixColor']
                         ),
                   ),
