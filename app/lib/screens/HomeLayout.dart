@@ -100,8 +100,8 @@ class _HomeLayout extends State<HomeLayout> {
                       )
                     ],
                   ),
-                  height: 680,
-                  width: 410,
+                  height: MediaQuery.of(context).size.height-125,
+                  width: MediaQuery.of(context).size.width,
                   decoration: ShapeDecoration(
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(
                       bottomLeft:Radius.circular(20),
@@ -110,7 +110,16 @@ class _HomeLayout extends State<HomeLayout> {
                     color: currentTheme['InnerContainerColor'],
                   )
               ),
-              SizedBox(height:20,child:Text("VaulTrix", style:TextStyle(height:2,color: currentTheme['VaultrixColor']))
+              SizedBox(
+                  //height:20,
+                  child:Text(
+                      "VaulTrix",
+                      style:TextStyle(
+                          height:2,
+                          fontSize:15,
+                          color: currentTheme['VaultrixColor'],
+                      ),
+                  )
               ),
             ],
           ),

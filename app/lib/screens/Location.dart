@@ -45,7 +45,7 @@ class _LocationLayoutState extends State<LocationLayout> {
                         height: 50,
                         child: Row(
                           children: <Widget>[
-                            SizedBox(width: MediaQuery.of(context).size.width-120,),
+                            SizedBox(width: MediaQuery.of(context).size.width-150,),
                             CustomElevatedButton(msg: 'Back', nav: 'Home'),
                           ],
                         ),
