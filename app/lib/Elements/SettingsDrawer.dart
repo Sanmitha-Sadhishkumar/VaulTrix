@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import '../screens/QuickAccess.dart';
+import '../colorThemes.dart';
 
 class SettingsTile extends StatelessWidget {
-  final Map<String,Color> currentTheme;
   final String DisplayText;
   final IconData DisplayIcon;
-  const SettingsTile({super.key, required this.DisplayIcon, required this.DisplayText, required this.currentTheme});
+  const SettingsTile({super.key, required this.DisplayIcon, required this.DisplayText});
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +22,15 @@ class SettingsTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
             ),
             child : ListTile(
-            leading: Icon(this.DisplayIcon, color:this.currentTheme['VaultrixColor']),
-            title: Text(this.DisplayText, style:TextStyle(height:2,color: this.currentTheme['VaultrixColor'])),
-            focusColor:this.currentTheme['InnerContainerColor'],
-            tileColor:this.currentTheme['InnerContainerColor'],
+            leading: Icon(this.DisplayIcon, color:currentTheme['VaultrixColor']),
+            title: Text(this.DisplayText, style:TextStyle(height:2,color: currentTheme['VaultrixColor'])),
+            focusColor:currentTheme['InnerContainerColor'],
+            tileColor:currentTheme['InnerContainerColor'],
             onTap: () {
               if(this.DisplayText=="Quick Access List"){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => QuickAccessList(currentTheme:this.currentTheme)),
+                  MaterialPageRoute(builder: (context) => QuickAccessList()),
                 );
               }
             },
@@ -46,13 +46,12 @@ class SettingsTile extends StatelessWidget {
 }
 
 class SettingsDrawer extends StatelessWidget {
-  final Map<String,Color> currentTheme;
-  const SettingsDrawer({super.key, required this.currentTheme});
+  const SettingsDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor:this.currentTheme['InnerContainerColor'],
+      backgroundColor:currentTheme['InnerContainerColor'],
       child: ListView(
         padding: const EdgeInsets.all(0),
         children: [
@@ -65,31 +64,31 @@ class SettingsDrawer extends StatelessWidget {
                   height: 100,
                   decoration:BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    border: Border.all(color: this.currentTheme['VaultrixColor']!),
-                    color: this.currentTheme['DrawerHeader'],),
+                    border: Border.all(color: currentTheme['VaultrixColor']!),
+                    color: currentTheme['DrawerHeader'],),
                   child:Text("   S   ", style:TextStyle(
                     height:2,
                     fontSize:50,
-                    color: this.currentTheme['InnerContainerColor'],
+                    color: currentTheme['InnerContainerColor'],
                   )
                 ),
                 ),
-                Text("Settings", style:TextStyle(fontSize:24,height:2,color: this.currentTheme['VaultrixColor'])),
+                Text("Settings", style:TextStyle(fontSize:24,height:2,color: currentTheme['VaultrixColor'])),
               ]
             ),
           ),//DrawerHeader
           //SizedBox(height:40),
-          SettingsTile(DisplayIcon:Icons.person,DisplayText:'My Profile',currentTheme: this.currentTheme),
+          SettingsTile(DisplayIcon:Icons.person,DisplayText:'My Profile'),
           SizedBox(height:10),
-          SettingsTile(DisplayIcon:Icons.contacts,DisplayText:'Quick Access List',currentTheme: this.currentTheme),
+          SettingsTile(DisplayIcon:Icons.contacts,DisplayText:'Quick Access List'),
           SizedBox(height:10),
-          SettingsTile(DisplayIcon:Icons.workspace_premium,DisplayText:'Features',currentTheme: this.currentTheme),
+          SettingsTile(DisplayIcon:Icons.workspace_premium,DisplayText:'Features'),
           SizedBox(height:10),
-          SettingsTile(DisplayIcon:Icons.location_on,DisplayText:'Location',currentTheme: this.currentTheme),
+          SettingsTile(DisplayIcon:Icons.location_on,DisplayText:'Location'),
           SizedBox(height:10),
-          SettingsTile(DisplayIcon:Icons.edit,DisplayText:'Password',currentTheme: this.currentTheme),
+          SettingsTile(DisplayIcon:Icons.edit,DisplayText:'Password'),
           SizedBox(height:10),
-          SettingsTile(DisplayIcon:Icons.logout,DisplayText:'Logout',currentTheme: this.currentTheme),
+          SettingsTile(DisplayIcon:Icons.logout,DisplayText:'Logout'),
         ],
       ),
     );

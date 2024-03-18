@@ -2,31 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import '../Elements/QuickAccessTile.dart';
 import '../Elements/SettingsDrawer.dart';
-
+import '../colorThemes.dart';
+import '../screens/HomeLayout.dart';
 
 class QuickAccessList extends StatelessWidget {
-  final Map<String,Color> currentTheme;
-  const QuickAccessList({super.key, required this.currentTheme});
+  const QuickAccessList({super.key });
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child:Scaffold(
+    return Scaffold(
            appBar:AppBar(
-            backgroundColor:this.currentTheme["InnerContainerColor"],
-            foregroundColor:this.currentTheme["VaultrixColor"],
+            backgroundColor:currentTheme["InnerContainerColor"],
+            foregroundColor:currentTheme["VaultrixColor"],
           ),
-          drawer: SettingsDrawer(currentTheme:this.currentTheme),
-          body:SizedBox(
-            height: 780,
-            width: 470,
+          drawer: SettingsDrawer(),
+          body:Column(
+          children: <Widget>[Flexible(
+            flex: 2,
+            fit: FlexFit.tight,
             child:Container(
-              color: this.currentTheme['OuterContainerColor'],
+              color: currentTheme['OuterContainerColor'],
               child: Column(
                 children:<Widget>[
                   Container(
-                    height: 670,
-                    width: 410,
                     decoration: ShapeDecoration(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
@@ -34,11 +32,10 @@ class QuickAccessList extends StatelessWidget {
                         bottomRight:Radius.circular(20),
                       ),
                     ),
-                    color: this.currentTheme['InnerContainerColor'],
+                    color: currentTheme['InnerContainerColor'],
                   ),
                   child:Column(
                     children: <Widget>[
-                      SizedBox(height: 40,),
                       SizedBox(
                         height: 50,
                         child: Row(
@@ -46,7 +43,10 @@ class QuickAccessList extends StatelessWidget {
                             SizedBox(width: 320,),
                             ElevatedButton(
                                 onPressed: (){
-                                  Navigator.pop(context);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => HomeLayout()),
+                                  );
                                 },
                                 child: Text("Back")
                             ),
@@ -54,21 +54,20 @@ class QuickAccessList extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 30,),
-                      SizedBox(height: 20,),
 
                       //Todo
-                      QuickAccessTile(currentTheme: this.currentTheme, ContactName: "Dhivya", ContactNum: '8248701899', ContactRelation: 'Friend',),
+                      QuickAccessTile(ContactName: "Dhivya", ContactNum: '8248701899', ContactRelation: 'Friend',),
                       SizedBox(height: 20,),
-                      QuickAccessTile(currentTheme: this.currentTheme, ContactName: "Sadhish", ContactNum: '9344944110', ContactRelation: 'Dad',),
-                      SizedBox(height: 30,),
+                      QuickAccessTile(ContactName: "Sadhish", ContactNum: '9344944110', ContactRelation: 'Dad',),
+                      SizedBox(height: 40,),
 
                       Container(
                           height: 300,
-                          width: 370,
+                          width: 330,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.white,),
                               borderRadius: BorderRadius.circular(20),
-                              color: this.currentTheme['HelperBgColor'],
+                              color: currentTheme['HelperBgColor'],
                           ),
                           child: Column(
                               children: <Widget>[
@@ -79,16 +78,16 @@ class QuickAccessList extends StatelessWidget {
                                         style: TextStyle(
                                           fontSize: 20,
                                           height:3,
-                                          color: this.currentTheme['VaultrixColor'],
+                                          color: currentTheme['VaultrixColor'],
                                         ),
                                     ),
                                   ),
                                   SizedBox(height: 30,),
-                                  QuickAccessFields(currentTheme: this.currentTheme, hintText: 'Contact Name'),
+                                  QuickAccessFields(hintText: 'Contact Name'),
                                   SizedBox(height: 10,),
-                                  QuickAccessFields(currentTheme: this.currentTheme, hintText: 'Contact Number'),
+                                  QuickAccessFields(hintText: 'Contact Number'),
                                   SizedBox(height: 10,),
-                                  QuickAccessFields(currentTheme: this.currentTheme, hintText: 'Contact Relation'),
+                                  QuickAccessFields(hintText: 'Contact Relation'),
                                   SizedBox(height: 20,),
                                   ElevatedButton(
                                       onPressed: (){},
@@ -97,6 +96,7 @@ class QuickAccessList extends StatelessWidget {
                               ],
                           ),
                       ),
+                      SizedBox(height:140),
                   ],
                 ),
               ),
@@ -106,7 +106,7 @@ class QuickAccessList extends StatelessWidget {
                         style:TextStyle(
                           height: 2,
                           fontSize: 10,
-                          color: this.currentTheme['VaultrixColor']
+                          color: currentTheme['VaultrixColor']
                         ),
                   ),
                 ),
@@ -114,7 +114,8 @@ class QuickAccessList extends StatelessWidget {
             ),
           ),
           ),
-        ),
+        ],
+      ),
     );
   }
 }

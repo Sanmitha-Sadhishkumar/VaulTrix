@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'screens/home_page.dart';
+import 'screens/HomeLayout.dart';
 import 'colorThemes.dart';
-
-Map<String,Color> currentTheme = Home_Dark_theme;
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: HomeLayout(currentTheme:currentTheme),
+      home: HomeLayout(),
     );
   }
 }

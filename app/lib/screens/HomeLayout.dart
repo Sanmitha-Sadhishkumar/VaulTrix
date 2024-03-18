@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import '../Elements/SettingsDrawer.dart';
 import '../Elements/HelperMessage.dart';
+import '../colorThemes.dart';
 
 class HomeLayout extends StatefulWidget {
-  final Map<String,Color> currentTheme;
-  const HomeLayout({super.key, required this.currentTheme});
+  const HomeLayout({super.key});
   @override
   State<HomeLayout> createState() => _HomeLayout();
 }
@@ -18,10 +18,10 @@ class _HomeLayout extends State<HomeLayout> {
           //leading: IconButton(
            //     icon:Icon(IconData(0xf36e, fontFamily: 'MaterialIcons')),
            //     onPressed:(){},),
-          backgroundColor:widget.currentTheme["InnerContainerColor"],
-          foregroundColor:widget.currentTheme["VaultrixColor"],
+          backgroundColor:currentTheme["InnerContainerColor"],
+          foregroundColor:currentTheme["VaultrixColor"],
       ),
-      drawer: SettingsDrawer(currentTheme:widget.currentTheme),
+      drawer: SettingsDrawer(),
       body: Center(
         child: Container(
           child: Column(
@@ -34,7 +34,7 @@ class _HomeLayout extends State<HomeLayout> {
                         child: ElevatedButton(
                           child: const Text('HELP'),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: widget.currentTheme['Button_Color'],
+                            backgroundColor: currentTheme['Button_Color'],
                             foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80),),
                             shadowColor: Colors.grey,
@@ -61,7 +61,7 @@ class _HomeLayout extends State<HomeLayout> {
                             hintText: 'Custom message',
                             filled: true,
                             border: OutlineInputBorder(borderRadius: BorderRadius.circular(50,)),
-                            fillColor: widget.currentTheme['fillColor'],
+                            fillColor: currentTheme['fillColor'],
                           ),
                           style: TextStyle(fontSize: 16.0, height: 2.0, color: Colors.black),
                           cursorHeight: 16,
@@ -73,9 +73,9 @@ class _HomeLayout extends State<HomeLayout> {
                         mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children:<Widget>[
-                          HelperMessage(msg: "I'm in Danger",currentTheme:widget.currentTheme),
+                          HelperMessage(msg: "I'm in Danger"),
                           SizedBox(width: 20),
-                          HelperMessage(msg: "I suspect that I'm in danger", currentTheme:widget.currentTheme),
+                          HelperMessage(msg: "I suspect that I'm in danger"),
                         ],
                       ),
                       SizedBox(height: 10),
@@ -83,9 +83,9 @@ class _HomeLayout extends State<HomeLayout> {
                         mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children:<Widget>[
-                          HelperMessage(msg: "I fear walking in Dark", currentTheme:widget.currentTheme),
+                          HelperMessage(msg: "I fear walking in Dark"),
                           SizedBox(width: 20),
-                          HelperMessage(msg: "I need Medical help", currentTheme:widget.currentTheme),
+                          HelperMessage(msg: "I need Medical help"),
                         ],
                       ),
                       SizedBox(height: 10),
@@ -93,9 +93,9 @@ class _HomeLayout extends State<HomeLayout> {
                         mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children:<Widget>[
-                          HelperMessage(msg: "Many men surrounded me", currentTheme:widget.currentTheme),
+                          HelperMessage(msg: "Many men surrounded me"),
                           SizedBox(width: 20),
-                          HelperMessage(msg: "Other", currentTheme:widget.currentTheme),
+                          HelperMessage(msg: "Other"),
                         ],
                       )
                     ],
@@ -107,16 +107,16 @@ class _HomeLayout extends State<HomeLayout> {
                       bottomLeft:Radius.circular(20),
                       bottomRight:Radius.circular(20),
                     ),),
-                    color: widget.currentTheme['InnerContainerColor'],
+                    color: currentTheme['InnerContainerColor'],
                   )
               ),
-              SizedBox(height:20,child:Text("VaulTrix", style:TextStyle(height:2,color: widget.currentTheme['VaultrixColor']))
+              SizedBox(height:20,child:Text("VaulTrix", style:TextStyle(height:2,color: currentTheme['VaultrixColor']))
               ),
             ],
           ),
         ),
       ),
-      backgroundColor: widget.currentTheme['OuterContainerColor'],
+      backgroundColor: currentTheme['OuterContainerColor'],
     );
   }
 }

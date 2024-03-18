@@ -20,3 +20,5 @@ Map<String, Color> Home_Light_theme = {
   "VaultrixColor":Color.fromARGB(255, 12, 12, 12),
   "DrawerHeader":Color.fromARGB(255, 248, 152, 27),
 };
+
+Map<String,Color> currentTheme = Home_Dark_theme;
