@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import '../Elements/SettingsDrawer.dart';
-import '../Elements/CustomElevatedButton.dart';
+import '../elements/SettingsDrawer.dart';
+import '../elements/CustomElevatedButton.dart';
 import '../colorThemes.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import '../constants.dart';
-import '../Elements/FeatureTile.dart';
+import '../elements/FeatureTile.dart';
 
 
 class FeaturesLayout extends StatefulWidget {

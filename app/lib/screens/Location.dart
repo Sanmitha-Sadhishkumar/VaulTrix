@@ -25,8 +25,7 @@ class _LocationLayoutState extends State<LocationLayout> {
           fit: FlexFit.tight,
           child:Container(
             color: currentTheme['OuterContainerColor'],
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Column(
               children:<Widget>[
                 Container(
                   decoration: ShapeDecoration(

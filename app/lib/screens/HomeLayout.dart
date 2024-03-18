@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import '../Elements/SettingsDrawer.dart';
-import '../Elements/HelperMessage.dart';
+import '../elements/SettingsDrawer.dart';
+import '../elements/HelperMessage.dart';
 import '../colorThemes.dart';
 
 class HomeLayout extends StatefulWidget {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import '../Elements/QuickAccessTile.dart';
-import '../Elements/SettingsDrawer.dart';
+import '../elements/QuickAccessTile.dart';
+import '../elements/SettingsDrawer.dart';
 import '../colorThemes.dart';
 import '../screens/HomeLayout.dart';
-import '../Elements/CustomElevatedButton.dart';
+import '../elements/CustomElevatedButton.dart';
 
 class QuickAccessList extends StatelessWidget {
   const QuickAccessList({super.key });

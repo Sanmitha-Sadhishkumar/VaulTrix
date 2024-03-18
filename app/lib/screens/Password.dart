@@ -1,8 +1,8 @@
-import 'package:app/Elements/QuickAccessTile.dart';
+import 'package:app/elements/QuickAccessTile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import '../Elements/SettingsDrawer.dart';
-import '../Elements/CustomElevatedButton.dart';
+import '../elements/SettingsDrawer.dart';
+import '../elements/CustomElevatedButton.dart';
 import '../colorThemes.dart';
 
 class ChangePasswordLayout extends StatefulWidget {
