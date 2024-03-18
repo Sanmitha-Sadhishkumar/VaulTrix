@@ -4,6 +4,7 @@ import '../Elements/QuickAccessTile.dart';
 import '../Elements/SettingsDrawer.dart';
 import '../colorThemes.dart';
 import '../screens/HomeLayout.dart';
+import '../Elements/CustomElevatedButton.dart';
 
 class QuickAccessList extends StatelessWidget {
   const QuickAccessList({super.key });
@@ -40,16 +41,8 @@ class QuickAccessList extends StatelessWidget {
                         height: 50,
                         child: Row(
                           children: <Widget>[
-                            SizedBox(width: 320,),
-                            ElevatedButton(
-                                onPressed: (){
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => HomeLayout()),
-                                  );
-                                },
-                                child: Text("Back")
-                            ),
+                            SizedBox(width: 300,),
+                            CustomElevatedButton(msg: 'Back', nav: 'Home'),
                           ],
                         ),
                       ),
@@ -89,10 +82,7 @@ class QuickAccessList extends StatelessWidget {
                                   SizedBox(height: 10,),
                                   QuickAccessFields(hintText: 'Contact Relation'),
                                   SizedBox(height: 20,),
-                                  ElevatedButton(
-                                      onPressed: (){},
-                                      child: Text("Add"),
-                                  ),
+                                  CustomElevatedButton(msg: 'Add', nav: '')
                               ],
                           ),
                       ),
