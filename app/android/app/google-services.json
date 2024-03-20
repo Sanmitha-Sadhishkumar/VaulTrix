@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "958611540214",
+    "project_id": "vaultrix-c5e8c",
+    "storage_bucket": "vaultrix-c5e8c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958611540214:android:557c42b8d0624ab80c84d7",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeik11h5hwW9NiM0gqfHwXuVgNbnrbhpM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
