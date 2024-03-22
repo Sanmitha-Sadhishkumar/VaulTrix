@@ -3,6 +3,7 @@ import 'package:flutter/painting.dart';
 import '../elements/SettingsDrawer.dart';
 import '../elements/HelperMessage.dart';
 import '../colorThemes.dart';
+import '../elements/CustomDialog.dart';
 
 class HomeLayout extends StatefulWidget {
   const HomeLayout({super.key});
@@ -46,6 +47,12 @@ class _HomeLayout extends State<HomeLayout> {
                           ),
                           onPressed: (){
                             print("Pressed");
+                            /*showDialog(context: context, barrierDismissible: false, builder: (BuildContext context)
+                            {
+                              return WillPopScope(
+                                  onWillPop: () => Future.value(false),
+                                  child:CustomDialog(title: 'Danger',content: 'She is in Danger'));
+                            });*/
                           },
                           onLongPress: (){
                             print("Long Pressed");

@@ -33,6 +33,7 @@ class ProfileTile extends StatelessWidget {
           Text(
             this.Key,
             style: TextStyle(
+              color: currentTheme['VaultrixColor'],
               fontSize: Font(),
             ),
           ),
@@ -40,6 +41,7 @@ class ProfileTile extends StatelessWidget {
           Text(
             this.Value,
             style: TextStyle(
+              color: currentTheme['VaultrixColor'],
               fontSize: Font(),
             ),),
         ],

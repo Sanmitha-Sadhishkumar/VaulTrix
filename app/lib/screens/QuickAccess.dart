@@ -5,6 +5,7 @@ import '../elements/SettingsDrawer.dart';
 import '../colorThemes.dart';
 import '../screens/HomeLayout.dart';
 import '../elements/CustomElevatedButton.dart';
+import '../elements/CustomTextFields.dart';
 
 class QuickAccessList extends StatelessWidget {
   const QuickAccessList({super.key });
@@ -84,11 +85,11 @@ class QuickAccessList extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(height: 20,),
-                                  QuickAccessFields(hintText: 'Contact Name'),
+                                  CustomTextFields(hintText: 'Contact Name'),
                                   SizedBox(height: 10,),
-                                  QuickAccessFields(hintText: 'Contact Number'),
+                                  CustomTextFields(hintText: 'Contact Number'),
                                   SizedBox(height: 10,),
-                                  QuickAccessFields(hintText: 'Contact Relation'),
+                                  CustomTextFields(hintText: 'Contact Relation'),
                                   SizedBox(height: 20,),
                                   CustomElevatedButton(msg: 'Add', nav: '')
                               ],

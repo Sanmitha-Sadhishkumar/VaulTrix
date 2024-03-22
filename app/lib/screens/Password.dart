@@ -4,6 +4,7 @@ import 'package:flutter/painting.dart';
 import '../elements/SettingsDrawer.dart';
 import '../elements/CustomElevatedButton.dart';
 import '../colorThemes.dart';
+import '../elements/CustomTextFields.dart';
 
 class ChangePasswordLayout extends StatefulWidget {
   const ChangePasswordLayout({super.key});
@@ -72,17 +73,17 @@ class _ChangePasswordLayoutState extends State<ChangePasswordLayout> {
                       child:Column(
                         children: [
                           SizedBox(height:30),
-                          const QuickAccessFields(
+                          const CustomTextFields(
                             hintText: 'Current Password',
                           ),
                           SizedBox(height:10),
                           CustomElevatedButton(msg: 'Confirm', nav:''),
                           SizedBox(height:40),
-                          const QuickAccessFields(
+                          const CustomTextFields(
                             hintText: 'New Password',
                           ),
                           SizedBox(height:10),
-                          const QuickAccessFields(
+                          const CustomTextFields(
                             hintText: 'Confirm Password',
                           ),
                           SizedBox(height:10),

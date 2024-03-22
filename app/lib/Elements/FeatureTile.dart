@@ -36,6 +36,7 @@ class _FeatureTileState extends State<FeatureTile> {
           Text(
             widget.msg,
             style: TextStyle(
+              color: currentTheme['VaultrixColor'],
               fontSize: 20,
             ),
           ),

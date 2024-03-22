@@ -4,11 +4,12 @@ import 'screens/HomeLayout.dart';
 import 'colorThemes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'screens/Signin.dart';
 
 void main() async {
-  await Firebase.initializeApp(
+  /*await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-  );
+  );*/
   runApp(const MyApp());
 }
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: HomeLayout(),
+      home: Signin(),
     );
   }
 }

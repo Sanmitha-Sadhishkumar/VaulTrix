@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import '../colorThemes.dart';
 import '../screens/HomeLayout.dart';
+import '../screens/Signup.dart';
+import '../screens/Signin.dart';
 
 class CustomElevatedButton extends StatefulWidget {
   final String msg;
@@ -21,6 +23,16 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => HomeLayout()),
+            );
+          } else if(widget.nav=='signup'){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Signup()),
+            );
+          } else if(widget.nav=='signin'){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Signin()),
             );
           }
         },
