@@ -8,7 +8,11 @@ import '../elements/CustomElevatedButton.dart';
 import '../elements/CustomTextFields.dart';
 
 class QuickAccessList extends StatelessWidget {
-  const QuickAccessList({super.key });
+  final nameController = TextEditingController();
+  final numController = TextEditingController();
+  final relController = TextEditingController();
+
+  QuickAccessList({super.key });
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +47,11 @@ class QuickAccessList extends StatelessWidget {
                         child: Row(
                           children: <Widget>[
                             SizedBox(width: MediaQuery.of(context).size.width-120,),
-                            CustomElevatedButton(msg: 'Back', nav: 'Home'),
+                            CustomElevatedButton(
+                                msg: 'Back',
+                                nav: 'Home',
+                              controllers: [],
+                            ),
                           ],
                         ),
                       ),
@@ -85,13 +93,17 @@ class QuickAccessList extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(height: 20,),
-                                  CustomTextFields(hintText: 'Contact Name'),
+                                  CustomTextFields(hintText: 'Contact Name',controller: nameController,),
                                   SizedBox(height: 10,),
-                                  CustomTextFields(hintText: 'Contact Number'),
+                                  CustomTextFields(hintText: 'Contact Number',controller: numController,),
                                   SizedBox(height: 10,),
-                                  CustomTextFields(hintText: 'Contact Relation'),
+                                  CustomTextFields(hintText: 'Contact Relation',controller: relController,),
                                   SizedBox(height: 20,),
-                                  CustomElevatedButton(msg: 'Add', nav: '')
+                                  CustomElevatedButton(
+                                      msg: 'Add',
+                                      nav: '',
+                                    controllers: [nameController,numController,relController],
+                                  )
                               ],
                           ),
                       ),

@@ -7,13 +7,16 @@ import '../colorThemes.dart';
 import '../elements/CustomTextFields.dart';
 
 class ChangePasswordLayout extends StatefulWidget {
-  const ChangePasswordLayout({super.key});
+  ChangePasswordLayout({super.key});
 
   @override
   State<ChangePasswordLayout> createState() => _ChangePasswordLayoutState();
 }
 
 class _ChangePasswordLayoutState extends State<ChangePasswordLayout> {
+  final currController = TextEditingController();
+  final newController = TextEditingController();
+  final confController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +51,7 @@ class _ChangePasswordLayoutState extends State<ChangePasswordLayout> {
                       child: Row(
                         children: <Widget>[
                           SizedBox(width: MediaQuery.of(context).size.width-120,),
-                          CustomElevatedButton(msg: 'Back', nav: 'Home'),
+                          CustomElevatedButton(msg: 'Back', nav: 'Home',controllers: [],),
                         ],
                       ),
                     ),
@@ -73,21 +76,24 @@ class _ChangePasswordLayoutState extends State<ChangePasswordLayout> {
                       child:Column(
                         children: [
                           SizedBox(height:30),
-                          const CustomTextFields(
+                          CustomTextFields(
                             hintText: 'Current Password',
+                            controller: currController,
                           ),
                           SizedBox(height:10),
-                          CustomElevatedButton(msg: 'Confirm', nav:''),
+                          CustomElevatedButton(msg: 'Confirm', nav:'',controllers: [currController],),
                           SizedBox(height:40),
-                          const CustomTextFields(
+                          CustomTextFields(
                             hintText: 'New Password',
+                            controller: newController,
                           ),
                           SizedBox(height:10),
-                          const CustomTextFields(
+                          CustomTextFields(
                             hintText: 'Confirm Password',
+                            controller: confController,
                           ),
                           SizedBox(height:10),
-                          CustomElevatedButton(msg: 'Change', nav: ''),
+                          CustomElevatedButton(msg: 'Change', nav: '',controllers: [newController,confController],),
                         ],
                       ),
                     ),

@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import '../colorThemes.dart';
 
-class CustomTextFields extends StatelessWidget {
+class CustomTextFields extends StatefulWidget {
   final String hintText;
-  const CustomTextFields({super.key, required this.hintText});
+  final TextEditingController controller;
+  const CustomTextFields({super.key, required this.hintText, required this.controller});
 
+  @override
+  State<CustomTextFields> createState() => _CustomTextFieldsState();
+}
+
+class _CustomTextFieldsState extends State<CustomTextFields> {
+  String text = "No Value Entered";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,16 +25,17 @@ class CustomTextFields extends StatelessWidget {
       height: 40,
       child:Material(
         child:TextField(
+          controller:widget.controller,
           decoration: InputDecoration(
-            hintText: this.hintText,
-            filled: true,
-            fillColor: currentTheme['fillColor'],
-          ),
-          style: TextStyle(fontSize: 16.0, height: 2.0, color: Colors.black),
-          cursorHeight: 16,
-          cursorOpacityAnimates: true,
+          hintText: widget.hintText,
+          filled: true,
+          fillColor: currentTheme['fillColor'],
         ),
+        style: TextStyle(fontSize: 16.0, height: 2.0, color: Colors.black),
+        cursorHeight: 16,
+        cursorOpacityAnimates: true,
       ),
+    ),
     );
   }
 }

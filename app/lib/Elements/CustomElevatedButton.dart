@@ -8,7 +8,8 @@ import '../screens/Signin.dart';
 class CustomElevatedButton extends StatefulWidget {
   final String msg;
   final String nav;
-  const CustomElevatedButton({super.key, required this.msg, required this.nav});
+  final List<TextEditingController> controllers;
+  const CustomElevatedButton({super.key, required this.msg, required this.nav, required this.controllers});
 
   @override
   State<CustomElevatedButton> createState() => _CustomElevatedButtonState();
@@ -34,6 +35,28 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
               context,
               MaterialPageRoute(builder: (context) => Signin()),
             );
+          } else if(widget.nav=='otp'){
+            bool isvalid=true;
+            print("Signup called");
+            for (var i in widget.controllers){
+              if(i.text==''){
+                isvalid=false;
+                break;
+              }
+              print(i.text);
+            };
+
+            if(isvalid &&
+                (widget.controllers[4].text==widget.controllers[3].text) &&
+                (int.parse(widget.controllers[1].text)<10000000000 && int.parse(widget.controllers[1].text)>6000000000) &&
+                ( RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                    .hasMatch(widget.controllers[2].text))
+            ){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeLayout()),
+              );
+            }
           }
         },
         style: ElevatedButton.styleFrom(

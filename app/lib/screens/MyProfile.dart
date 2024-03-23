@@ -47,7 +47,7 @@ class _MyProfileLayoutState extends State<MyProfileLayout> {
                       child: Row(
                         children: <Widget>[
                           SizedBox(width: MediaQuery.of(context).size.width-120,),
-                          CustomElevatedButton(msg: 'Back', nav: 'Home'),
+                          CustomElevatedButton(msg: 'Back', nav: 'Home',controllers: [],),
                         ],
                       ),
                     ),

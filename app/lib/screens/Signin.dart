@@ -12,6 +12,8 @@ class Signin extends StatefulWidget {
 }
 
 class _SigninState extends State<Signin> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,9 +61,9 @@ class _SigninState extends State<Signin> {
                         child:Column(
                           children:[
                             SizedBox(height:50),
-                            CustomTextFields(hintText:'Your Email'),
+                            CustomTextFields(hintText:'Your Email',controller:emailController),
                             SizedBox(height:30),
-                            CustomTextFields(hintText:'Password'),
+                            CustomTextFields(hintText:'Password',controller:passwordController),
                             SizedBox(height:50),
                             Row(
                               mainAxisAlignment:MainAxisAlignment.center,
@@ -69,11 +71,13 @@ class _SigninState extends State<Signin> {
                                 CustomElevatedButton(
                                   msg:"Sign In",
                                   nav:'otp',
+                                  controllers: [emailController,passwordController],
                                 ),
                                 SizedBox(width:50),
                                 CustomElevatedButton(
                                   msg:"Sign Up",
                                   nav:'signup',
+                                  controllers: [emailController,passwordController],
                                 ),
                               ],
                             ),

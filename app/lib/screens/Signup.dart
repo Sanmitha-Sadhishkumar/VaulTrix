@@ -12,7 +12,11 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-
+  final nameController = TextEditingController();
+  final mobController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confpassController = TextEditingController();
 String dropdownvalue = 'Woman';
   var items = [
     'Woman',
@@ -65,15 +69,15 @@ String dropdownvalue = 'Woman';
                         child:Column(
                           children:[
                             SizedBox(height:50),
-                            CustomTextFields(hintText:'Name'),
+                            CustomTextFields(hintText:'Name',controller: nameController,),
                             SizedBox(height:30),
-                            CustomTextFields(hintText:'Mobile'),
+                            CustomTextFields(hintText:'Mobile',controller: mobController,),
                             SizedBox(height:30),
-                            CustomTextFields(hintText:'Email'),
+                            CustomTextFields(hintText:'Email',controller: emailController,),
                             SizedBox(height:30),
-                            CustomTextFields(hintText:'Password'),
+                            CustomTextFields(hintText:'Password',controller: passwordController,),
                             SizedBox(height:30),
-                            CustomTextFields(hintText:'Confirm Password'),
+                            CustomTextFields(hintText:'Confirm Password',controller: confpassController,),
                             SizedBox(height:30),
                             Container(
                               width:MediaQuery.of(context).size.width-160,
@@ -116,22 +120,24 @@ String dropdownvalue = 'Woman';
                                 ],
                               ),
                             ),
-                            SizedBox(height:50),
+                            const SizedBox(height:50),
                             Row(
                               mainAxisAlignment:MainAxisAlignment.center,
                               children:[
                                 CustomElevatedButton(
                                   msg:"Sign In",
                                   nav:'signin',
+                                  controllers: [nameController,mobController,emailController,passwordController,confpassController],
                                 ),
                                 SizedBox(width:50),
                                 CustomElevatedButton(
                                   msg:"Sign Up",
                                   nav:'otp',
+                                  controllers: [nameController,mobController,emailController,passwordController,confpassController],
                                 ),
                               ],
                             ),
-                            SizedBox(height:50),
+                            const SizedBox(height:50),
                           ],
                         ),
                       ),

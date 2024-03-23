@@ -46,7 +46,7 @@ class _LocationLayoutState extends State<LocationLayout> {
                         child: Row(
                           children: <Widget>[
                             SizedBox(width: MediaQuery.of(context).size.width-150,),
-                            CustomElevatedButton(msg: 'Back', nav: 'Home'),
+                            CustomElevatedButton(msg: 'Back', nav: 'Home',controllers: [],),
                           ],
                         ),
                       ),
