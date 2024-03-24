@@ -1,3 +1,4 @@
+import 'package:app/firebase_methods/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'screens/HomeLayout.dart';
@@ -5,11 +6,13 @@ import 'colorThemes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'screens/Signin.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
-  /*await Firebase.initializeApp(
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-  );*/
+  );
   runApp(const MyApp());
 }
 
@@ -20,13 +23,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'VaulTrix',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+
+    return MultiProvider(
+      providers: [
+        Provider<AuthService>(
+          create: (_) => AuthService(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'VaulTrix',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: Signin(),
       ),
-      home: Signin(),
     );
   }
 }

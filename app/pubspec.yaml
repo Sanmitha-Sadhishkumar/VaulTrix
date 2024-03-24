@@ -38,6 +38,11 @@ dependencies:
   flutter_svg: 2.0.10+1
   flutter_switch: ^0.3.2
   firebase_core: ^2.27.1
+  cloud_firestore: ^4.15.9
+  firebase_ui_auth: ^1.13.1
+  firebase_auth: ^4.17.9
+  get_it: ^7.6.7
+  provider: ^5.0.0
 
 
 dev_dependencies:

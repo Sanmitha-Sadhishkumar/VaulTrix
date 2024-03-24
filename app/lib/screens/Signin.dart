@@ -1,8 +1,12 @@
+
+import 'package:app/firebase_methods/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import '../colorThemes.dart';
 import '../elements/CustomTextFields.dart';
 import '../elements/CustomElevatedButton.dart';
+import '../firebase_methods/auth_service.dart';
+
 
 class Signin extends StatefulWidget {
   const Signin({super.key});

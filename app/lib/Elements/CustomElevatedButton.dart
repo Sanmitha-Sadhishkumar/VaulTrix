@@ -4,12 +4,18 @@ import '../colorThemes.dart';
 import '../screens/HomeLayout.dart';
 import '../screens/Signup.dart';
 import '../screens/Signin.dart';
+import '../firebase_methods/addUser.dart';
+import '../firebase_methods/auth_service.dart';
+import 'package:provider/provider.dart';
+
+
 
 class CustomElevatedButton extends StatefulWidget {
   final String msg;
   final String nav;
   final List<TextEditingController> controllers;
-  const CustomElevatedButton({super.key, required this.msg, required this.nav, required this.controllers});
+  String option='';
+  CustomElevatedButton({super.key, required this.msg, required this.nav, required this.controllers, this.option=''});
 
   @override
   State<CustomElevatedButton> createState() => _CustomElevatedButtonState();
@@ -20,6 +26,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: (){
+
           if(widget.nav=='Home'){
             Navigator.push(
               context,
@@ -31,11 +38,21 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
               MaterialPageRoute(builder: (context) => Signup()),
             );
           } else if(widget.nav=='signin'){
+            final authService = Provider.of<AuthService>(context);
+            authService.signInWithEmailAndPassword(
+              widget.controllers[2].text,
+              widget.controllers[3].text,
+            );
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => Signin()),
             );
           } else if(widget.nav=='otp'){
+            final authService = Provider.of<AuthService>(context, listen: false);
+            authService.createuserWithEmailAndPassword(
+              widget.controllers[2].text,
+              widget.controllers[3].text,
+            );
             bool isvalid=true;
             print("Signup called");
             for (var i in widget.controllers){
@@ -46,12 +63,15 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
               print(i.text);
             };
 
-            if(isvalid &&
-                (widget.controllers[4].text==widget.controllers[3].text) &&
-                (int.parse(widget.controllers[1].text)<10000000000 && int.parse(widget.controllers[1].text)>6000000000) &&
-                ( RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                    .hasMatch(widget.controllers[2].text))
-            ){
+            if(isvalid){
+              addUserToFirestore(
+                  name: widget.controllers[0].text,
+                  mobile: widget.controllers[1].text,
+                  email: widget.controllers[2].text,
+                  password: widget.controllers[3].text,
+                  confPassword: widget.controllers[4].text,
+                  userType: widget.option,
+              );
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => HomeLayout()),

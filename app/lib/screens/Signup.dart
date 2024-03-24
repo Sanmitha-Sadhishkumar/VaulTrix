@@ -134,6 +134,7 @@ String dropdownvalue = 'Woman';
                                   msg:"Sign Up",
                                   nav:'otp',
                                   controllers: [nameController,mobController,emailController,passwordController,confpassController],
+                                  option: dropdownvalue,
                                 ),
                               ],
                             ),
