@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import '../elements/SettingsDrawer.dart';
-import '../elements/HelperMessage.dart';
 import '../colorThemes.dart';
 
 class CustomDialog extends StatefulWidget {

@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'user_module.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class AuthService{
   final auth.FirebaseAuth _firebaseAuth = auth.FirebaseAuth.instance;
@@ -63,6 +62,7 @@ void getInfo() async{
   currentUser.radius = data['radius'];
   currentUser.light = data['light'];
   currentUser.userType = data['user_type'];
+  currentUser.uid = data['user id'];
   if(qdata!=Null) {
     List<Map<String, dynamic>> qal = <Map<String, dynamic>>[];
     List<QuickAccessList> q = <QuickAccessList>[];
@@ -82,6 +82,6 @@ void getInfo() async{
   } else {
     currentUser.quickAccessList=[];
   }
-  print("Getting info");
+  print("Got info");
 }
 

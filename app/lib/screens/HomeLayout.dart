@@ -3,9 +3,8 @@ import 'package:flutter/painting.dart';
 import '../elements/SettingsDrawer.dart';
 import '../elements/HelperMessage.dart';
 import '../colorThemes.dart';
-import '../elements/CustomDialog.dart';
 import 'package:app/firebase_methods/auth_service.dart';
-import 'package:app/firebase_methods/user_module.dart';
+import '../firebase_methods/addData.dart';
 
 
 class HomeLayout extends StatefulWidget {
@@ -15,6 +14,7 @@ class HomeLayout extends StatefulWidget {
 }
 
 class _HomeLayout extends State<HomeLayout> {
+  TextEditingController customTextContoller=TextEditingController();
   @override
   Widget build(BuildContext context) {
     getInfo();
@@ -57,9 +57,11 @@ class _HomeLayout extends State<HomeLayout> {
                                   onWillPop: () => Future.value(false),
                                   child:CustomDialog(title: 'Danger',content: 'She is in Danger'));
                             });*/
+                            addAlert(message: customTextContoller.text, dangerLevel: 'suspicious');
                           },
                           onLongPress: (){
                             print("Long Pressed");
+                            addAlert(message: customTextContoller.text, dangerLevel: 'strictly');
                           },
                         ),
                       ),
@@ -68,6 +70,7 @@ class _HomeLayout extends State<HomeLayout> {
                         width: 250,
                         height: 50,
                         child:TextField(
+                          controller: customTextContoller,
                           decoration: InputDecoration(
                             hintText: 'Custom message',
                             filled: true,
@@ -84,9 +87,9 @@ class _HomeLayout extends State<HomeLayout> {
                         mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children:<Widget>[
-                          HelperMessage(msg: "I'm in Danger"),
+                          HelperMessage(msg: "I'm in Danger", controllers: customTextContoller,),
                           SizedBox(width: 20),
-                          HelperMessage(msg: "I suspect that I'm in danger"),
+                          HelperMessage(msg: "I suspect that I'm in danger", controllers: customTextContoller),
                         ],
                       ),
                       SizedBox(height: 10),
@@ -94,9 +97,9 @@ class _HomeLayout extends State<HomeLayout> {
                         mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children:<Widget>[
-                          HelperMessage(msg: "I fear walking in Dark"),
+                          HelperMessage(msg: "I fear walking in Dark", controllers: customTextContoller),
                           SizedBox(width: 20),
-                          HelperMessage(msg: "I need Medical help"),
+                          HelperMessage(msg: "I need Medical help", controllers: customTextContoller),
                         ],
                       ),
                       SizedBox(height: 10),
@@ -104,9 +107,7 @@ class _HomeLayout extends State<HomeLayout> {
                         mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children:<Widget>[
-                          HelperMessage(msg: "Many men surrounded me"),
-                          SizedBox(width: 20),
-                          HelperMessage(msg: "Other"),
+                          HelperMessage(msg: "Many men surrounded me", controllers: customTextContoller),
                         ],
                       )
                     ],

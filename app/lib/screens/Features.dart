@@ -3,7 +3,6 @@ import 'package:flutter/painting.dart';
 import '../elements/SettingsDrawer.dart';
 import '../elements/CustomElevatedButton.dart';
 import '../colorThemes.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 import '../elements/FeatureTile.dart';
 import 'package:app/firebase_methods/user_module.dart';
 

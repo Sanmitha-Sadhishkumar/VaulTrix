@@ -4,7 +4,7 @@ import '../colorThemes.dart';
 import '../screens/HomeLayout.dart';
 import '../screens/Signup.dart';
 import '../screens/Signin.dart';
-import '../firebase_methods/addUser.dart';
+import '../firebase_methods/addData.dart';
 import '../firebase_methods/auth_service.dart';
 import 'package:provider/provider.dart';
 import 'package:app/firebase_methods/user_module.dart';
@@ -59,7 +59,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
                   password: widget.controllers[3].text,
                   confPassword: widget.controllers[4].text,
                   userType: widget.option,
-                  uid : u!.uid,
+                  uid : u!.uid ?? '',
               );
               Navigator.push(
                 context,

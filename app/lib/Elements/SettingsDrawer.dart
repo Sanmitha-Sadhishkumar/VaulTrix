@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import '../screens/QuickAccess.dart';
 import '../colorThemes.dart';
-import '../screens/Password.dart';
-import '../screens/MyProfile.dart';
-import '../screens/Features.dart';
-import '../screens/Location.dart';
 import 'SettingsTile.dart';
 
 

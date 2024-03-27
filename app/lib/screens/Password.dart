@@ -1,4 +1,3 @@
-import 'package:app/elements/QuickAccessTile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import '../elements/SettingsDrawer.dart';

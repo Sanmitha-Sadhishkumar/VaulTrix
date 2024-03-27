@@ -7,7 +7,6 @@ import '../screens/MyProfile.dart';
 import '../screens/Features.dart';
 import '../screens/Location.dart';
 import '../screens/Signin.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 import '../firebase_methods/auth_service.dart';
 

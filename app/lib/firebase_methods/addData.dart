@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'auth_service.dart';
+import 'package:app/firebase_methods/user_module.dart';
 
 Future<void> addUserToFirestore({
   required String name,
@@ -69,7 +67,7 @@ Future<void> addQALToFirestore({
   required String relation,
 }) async {
   try {
-    if(int.parse(mobile)<10000000000 && int.parse(mobile)>600000000){
+    if(int.parse(mobile)<10000000000 && int.parse(mobile)>6000000000){
           await FirebaseFirestore.instance.collection('users')
               .doc(FirebaseAuth.instance.currentUser!.uid)
               .collection('quickaccesslist').add({
@@ -78,10 +76,25 @@ Future<void> addQALToFirestore({
                   'relation':relation});
           print('updated QAL');
         }
-
   } catch (e) {
-    // Handle errors here
     print('Error adding user to Firestore: $e');
-    rethrow; // Rethrow the exception for handling in the UI if needed
+    rethrow;
   }
+}
+
+Future<void> addAlert({
+  required String message,
+  required dangerLevel,
+}) async{
+  List<String> numbers = <String>[];
+  for(var i in currentUser.quickAccessList!) {
+    numbers.add(i.mobile.toString());
+  }
+  await FirebaseFirestore.instance.collection('alerts').add({
+    'serious':(dangerLevel=='suspicious' ? false:true),
+    'uid' : currentUser.uid,
+    'settled' : false,
+    'message' : message,
+    'QAL':numbers,
+  });
 }

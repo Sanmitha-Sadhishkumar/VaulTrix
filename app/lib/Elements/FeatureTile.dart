@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import '../Elements/SettingsDrawer.dart';
-import '../Elements/CustomElevatedButton.dart';
 import '../colorThemes.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import '../constants.dart';
-
 
 class FeatureTile extends StatefulWidget {
   final String msg;
