@@ -4,6 +4,9 @@ import '../elements/SettingsDrawer.dart';
 import '../elements/HelperMessage.dart';
 import '../colorThemes.dart';
 import '../elements/CustomDialog.dart';
+import 'package:app/firebase_methods/auth_service.dart';
+import 'package:app/firebase_methods/user_module.dart';
+
 
 class HomeLayout extends StatefulWidget {
   const HomeLayout({super.key});
@@ -14,6 +17,7 @@ class HomeLayout extends StatefulWidget {
 class _HomeLayout extends State<HomeLayout> {
   @override
   Widget build(BuildContext context) {
+    getInfo();
     return Scaffold(
       appBar:AppBar(
           //leading: IconButton(
@@ -30,7 +34,7 @@ class _HomeLayout extends State<HomeLayout> {
               Container(
                   child:Column(
                     children:<Widget>[
-                      SizedBox(height: 80),
+                      SizedBox(height: 80, width: MediaQuery.of(context).size.width,),
                       Center(
                         child: ElevatedButton(
                           child: const Text('HELP'),

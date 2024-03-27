@@ -74,7 +74,7 @@ class _SigninState extends State<Signin> {
                               children:[
                                 CustomElevatedButton(
                                   msg:"Sign In",
-                                  nav:'otp',
+                                  nav:'otpsignin',
                                   controllers: [emailController,passwordController],
                                 ),
                                 SizedBox(width:50),

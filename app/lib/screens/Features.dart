@@ -4,9 +4,14 @@ import '../elements/SettingsDrawer.dart';
 import '../elements/CustomElevatedButton.dart';
 import '../colorThemes.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import '../constants.dart';
 import '../elements/FeatureTile.dart';
+import 'package:app/firebase_methods/user_module.dart';
 
+bool LocationStatus=currentUser.location;
+bool CryStatus=currentUser.cry;
+bool ShriekStatus=currentUser.shriek;
+bool LightStatus=currentUser.light;
+bool RadiusStatus=currentUser.radius;
 
 class FeaturesLayout extends StatefulWidget {
   const FeaturesLayout({super.key});
@@ -18,6 +23,7 @@ class FeaturesLayout extends StatefulWidget {
 class _FeaturesLayoutState extends State<FeaturesLayout> {
   @override
   Widget build(BuildContext context) {
+    print(LocationStatus);
     return Scaffold(
       appBar:AppBar(
         backgroundColor:currentTheme["InnerContainerColor"],

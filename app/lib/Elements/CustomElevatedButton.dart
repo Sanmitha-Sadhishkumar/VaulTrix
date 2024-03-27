@@ -7,8 +7,7 @@ import '../screens/Signin.dart';
 import '../firebase_methods/addUser.dart';
 import '../firebase_methods/auth_service.dart';
 import 'package:provider/provider.dart';
-
-
+import 'package:app/firebase_methods/user_module.dart';
 
 class CustomElevatedButton extends StatefulWidget {
   final String msg;
@@ -25,7 +24,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: (){
+        onPressed: () async {
 
           if(widget.nav=='Home'){
             Navigator.push(
@@ -38,7 +37,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
               MaterialPageRoute(builder: (context) => Signup()),
             );
           } else if(widget.nav=='signin'){
-            final authService = Provider.of<AuthService>(context);
+            final authService = Provider.of<AuthService>(context, listen: false);
             authService.signInWithEmailAndPassword(
               widget.controllers[2].text,
               widget.controllers[3].text,
@@ -47,38 +46,43 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
               context,
               MaterialPageRoute(builder: (context) => Signin()),
             );
-          } else if(widget.nav=='otp'){
+          } else if(widget.nav=='otpsignup'){
             final authService = Provider.of<AuthService>(context, listen: false);
-            authService.createuserWithEmailAndPassword(
+            User? u = await authService.createuserWithEmailAndPassword(
               widget.controllers[2].text,
               widget.controllers[3].text,
             );
-            bool isvalid=true;
-            print("Signup called");
-            for (var i in widget.controllers){
-              if(i.text==''){
-                isvalid=false;
-                break;
-              }
-              print(i.text);
-            };
-
-            if(isvalid){
-              addUserToFirestore(
+            addUserToFirestore(
                   name: widget.controllers[0].text,
                   mobile: widget.controllers[1].text,
                   email: widget.controllers[2].text,
                   password: widget.controllers[3].text,
                   confPassword: widget.controllers[4].text,
                   userType: widget.option,
+                  uid : u!.uid,
               );
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => HomeLayout()),
               );
-            }
+          } else if(widget.nav=='otpsignin'){
+            final authService = Provider.of<AuthService>(context, listen: false);
+            authService.signInWithEmailAndPassword(
+              widget.controllers[0].text,
+              widget.controllers[1].text,
+            );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeLayout()),
+              );
+          } else if (widget.nav=='QAL'){
+            addQALToFirestore(
+                name:widget.controllers[0].text,
+                mobile:widget.controllers[1].text,
+                relation:widget.controllers[2].text
+            );
           }
-        },
+        } ,
         style: ElevatedButton.styleFrom(
           backgroundColor: currentTheme['HelperBgColor'],
           foregroundColor: Colors.white,

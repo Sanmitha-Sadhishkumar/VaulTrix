@@ -17,9 +17,9 @@ class FeatureTile extends StatefulWidget {
 }
 
 class _FeatureTileState extends State<FeatureTile> {
-  bool _status=false;
   @override
   Widget build(BuildContext context) {
+    bool? _status=widget.status;
     return Container(
       height: 60,
       width: 330,

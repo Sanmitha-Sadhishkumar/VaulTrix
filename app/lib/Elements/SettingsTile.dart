@@ -6,6 +6,10 @@ import '../screens/Password.dart';
 import '../screens/MyProfile.dart';
 import '../screens/Features.dart';
 import '../screens/Location.dart';
+import '../screens/Signin.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import '../firebase_methods/auth_service.dart';
 
 class SettingsTile extends StatelessWidget {
   final String DisplayText;
@@ -55,6 +59,13 @@ class SettingsTile extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ChangePasswordLayout()),
+                  );
+                } else if(this.DisplayText=="Logout"){
+                  final authService = Provider.of<AuthService>(context, listen: false);
+                  authService.signOut();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Signin()),
                   );
                 }
               },

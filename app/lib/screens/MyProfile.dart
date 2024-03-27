@@ -4,6 +4,7 @@ import '../elements/SettingsDrawer.dart';
 import '../elements/CustomElevatedButton.dart';
 import '../colorThemes.dart';
 import '../elements/ProfileTile.dart';
+import 'package:app/firebase_methods/user_module.dart';
 
 class MyProfileLayout extends StatefulWidget {
   const MyProfileLayout({super.key});
@@ -15,6 +16,7 @@ class MyProfileLayout extends StatefulWidget {
 class _MyProfileLayoutState extends State<MyProfileLayout> {
   @override
   Widget build(BuildContext context) {
+    print('name : '+currentUser.name.toString());
     return Scaffold(
       appBar:AppBar(
         backgroundColor:currentTheme["InnerContainerColor"],
@@ -74,11 +76,11 @@ class _MyProfileLayoutState extends State<MyProfileLayout> {
                       ),
                     ),
                       SizedBox(height: 30,),
-                      ProfileTile(Key:'Name : ', Value: 'Sanmitha V S'),
+                      ProfileTile(Key:'Name : ', Value: currentUser.name.toString()),
                       SizedBox(height: 20,),
-                      ProfileTile(Key:'Contact : ', Value: '93363200587'),
+                      ProfileTile(Key:'Contact : ', Value: currentUser.mobile.toString()),
                       SizedBox(height: 20,),
-                      ProfileTile(Key:'Email : ', Value: 'sanmithasadhishkumar@gmail.com'),
+                      ProfileTile(Key:'Email : ', Value: currentUser.email.toString()),
                       SizedBox(height:MediaQuery.of(context).size.height-670),
                     ],
                   ),

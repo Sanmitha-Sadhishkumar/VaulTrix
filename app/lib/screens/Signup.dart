@@ -132,7 +132,7 @@ String dropdownvalue = 'Woman';
                                 SizedBox(width:50),
                                 CustomElevatedButton(
                                   msg:"Sign Up",
-                                  nav:'otp',
+                                  nav:'otpsignup',
                                   controllers: [nameController,mobController,emailController,passwordController,confpassController],
                                   option: dropdownvalue,
                                 ),

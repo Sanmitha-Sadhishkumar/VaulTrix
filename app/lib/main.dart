@@ -6,6 +6,7 @@ import 'colorThemes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'screens/Signin.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -23,7 +24,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return MultiProvider(
       providers: [
         Provider<AuthService>(
@@ -36,7 +36,8 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: Signin(),
+        home: FirebaseAuth.instance.currentUser == null
+          ? Signin() : HomeLayout(),
       ),
     );
   }

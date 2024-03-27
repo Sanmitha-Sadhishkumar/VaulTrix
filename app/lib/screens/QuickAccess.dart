@@ -1,3 +1,4 @@
+import 'package:app/firebase_methods/user_module.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import '../elements/QuickAccessTile.dart';
@@ -28,7 +29,8 @@ class QuickAccessList extends StatelessWidget {
             fit: FlexFit.tight,
             child:Container(
               color: currentTheme['OuterContainerColor'],
-              child: Column(
+              child: SingleChildScrollView(
+                child:Column(
                 children:<Widget>[
                   Container(
                     decoration: ShapeDecoration(
@@ -66,11 +68,19 @@ class QuickAccessList extends StatelessWidget {
                       SizedBox(height: 20,),
 
                       //Todo
+                      Column(
+                      children: [
+                      for(var i in currentUser.quickAccessList!)
+                        QuickAccessTile(ContactName: i.name.toString(), ContactNum: i.mobile.toString(), ContactRelation: i.relation.toString(),),
+                        SizedBox(height: 20,)
+                      ],
+                      ),
+                      /*
                       QuickAccessTile(ContactName: "Dhivya", ContactNum: '8248701899', ContactRelation: 'Friend',),
                       SizedBox(height: 20,),
                       QuickAccessTile(ContactName: "Sadhish", ContactNum: '9344944110', ContactRelation: 'Dad',),
                       SizedBox(height: 30,),
-
+                      */
                       Container(
                           height: 300,
                           width: 330,
@@ -101,7 +111,7 @@ class QuickAccessList extends StatelessWidget {
                                   SizedBox(height: 20,),
                                   CustomElevatedButton(
                                       msg: 'Add',
-                                      nav: '',
+                                      nav: 'QAL',
                                     controllers: [nameController,numController,relController],
                                   )
                               ],
@@ -123,6 +133,7 @@ class QuickAccessList extends StatelessWidget {
                 ),
               ],
             ),
+              ),
           ),
           ),
         ],

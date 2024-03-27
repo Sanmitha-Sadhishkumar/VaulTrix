@@ -1,6 +1,7 @@
+import 'package:app/firebase_methods/user_module.dart';
 
-bool LocationStatus=false;
-bool CryStatus=false;
-bool ShriekStatus=false;
-bool LightStatus=false;
-bool RadiusStatus=false;
+bool? LocationStatus=currentUser.location;
+bool? CryStatus=currentUser.cry;
+bool? ShriekStatus=currentUser.shriek;
+bool? LightStatus=currentUser.light;
+bool? RadiusStatus=currentUser.radius;
